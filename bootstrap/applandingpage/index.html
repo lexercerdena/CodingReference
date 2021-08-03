@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Landing Page Using Boostrap</title>
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body data-spy="scroll" data-target="#navbar" data-offset="70">
+    <header class="navbar-default">    
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top" id="navbarScrollspy">
+            <a class="navbar-brand font-weight-bold" href="#home">MyApp</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                    <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                    <a class="nav-link" href="#cardSection">About</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#footerSection">Download The App</a>
+                    </li>
+                </ul>
+                <form class="form-inline">
+                    <div class="form-group mb-2">
+                    <label for="staticEmail2" class="sr-only">Email</label>
+                    <input type="text" class="form-control" id="staticEmail2" placeholder="Email">
+                    </div>
+                    <div class="form-group mx-sm-3 mb-2">
+                    <label for="inputPassword2" class="sr-only">Password</label>
+                    <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-success mb-2">Login</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+            <div class="content-center text-light">
+                <h1 class="display-3">My Awesome App!</h1>
+                <p class="lead">This is why YOU should download this fantastic App!</p>
+                <hr class="my-4 text-light">
+                <p>Want to know more? Join our mailing list!</p>
+                <form>
+                    <div class="form-row align-items-center justify-content-center">
+                      <div class="col-auto">
+                        <div class="input-group mb-2">
+                            <label class="sr-only" for="yourEmail"></label>
+                            <div class="input-group-prepend">
+                                <div class="input-group-text" id="yourEmail">@</div>
+                            </div>
+                            <input type="text" class="form-control" id="input-width" placeholder="Your Email">
+                        </div>
+                      </div>
+                      <div class="col-auto">
+                            <button type="submit" class="btn btn-primary mb-2">Sign-up</button>
+                      </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <div class="container" id="cardSection">
+        <div class="title-content">
+            <h1>Why This App is Awesome</h1>
+            <p class="lead">Summary, Once again, of your app awesomeness</p>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4 md-6">
+                <div class="card card-block">
+                    <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/en/a/aa/Bart_Simpson_200px.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Bart Simpson</h5>
+                        <p class="card-text">Bartholomew JoJo Simpson is a fictional character in the American animated television series.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 md-6">    
+                <div class="card card-block">
+                    <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/en/a/aa/Bart_Simpson_200px.png"" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Homer Simpson</h5>
+                        <p class="card-text">Bartholomew JoJo Simpson is a fictional character in the American animated television series.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 md-6">
+                <div class="card card-block">
+                    <img class="card-img-top" src="https://upload.wikimedia.org/wikipedia/en/a/aa/Bart_Simpson_200px.png"" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Marge Simpson</h5>
+                        <p class="card-text">Bartholomew JoJo Simpson is a fictional character in the American animated television series.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+
+    <footer id="footerSection">
+        <div class="app-store">
+            <h3>Download the app!</h3>
+            <p class="lead">Really, why should i download this app!!!</p>
+            <img src="images/downloadapplogo.png" alt="downloadapplogo">
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

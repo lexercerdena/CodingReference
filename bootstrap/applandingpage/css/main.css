@@ -1,0 +1,46 @@
+body {
+    position: relative;
+    /* padding-top: 60px; */
+}
+
+/* header {
+    position: fixed;
+    width: 100%;
+    top: 0%;
+    z-index: 10;
+} */
+
+.jumbotron {
+    text-align: center;
+    background: url("../images/jumbotron-bg.jpg") center center;
+    background-size: cover;
+}
+
+.nav-link:hover {
+    color: blue !important;
+}
+
+#input-width {
+    width: 300px;
+}
+
+.card-img-top {
+    height: 270px;
+}
+
+.title-content {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#footerSection {
+    /* border: 1px solid black; */
+    width: 100%;
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    height: 500px;
+    text-align: center;
+    align-items: center;
+    background-color: aqua;
+}

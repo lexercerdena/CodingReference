@@ -1,0 +1,50 @@
+<html>
+    <head>
+        
+    </head>
+
+<body>
+    <select id="printerType">
+        <option value="laserJet">LaserJet Printer</option>
+        <option id="inkjet" value="inkjet">InkJet Printer</option>
+        <option value="Custom">Custom Printer</option>
+    </select>
+
+    <select id="monthlyConsumption">
+        <option value="firstYield">1,000-3,000 Yield</option>
+        <option value="secondYield">3,001-6,000 Yield</option>
+        <option value="thirdYield">6,001 Yield and Above</option>
+        <option value="unlimited">Unlimited</option>
+    </select>
+
+    <select id="hideUnlimited">
+        <option id="unlimited" value="unlimited">Unlimited</option>
+    </select>
+
+    <script>
+        let printerType = document.getElementById("printerType");
+        let monthlyConsumption = document.getElementById("monthlyConsumption");
+        let inkjet = document.getElementById("inkjet");
+        let hideUnlimited = document.getElementById("hideUnlimited");
+            console.log(printerType);
+            console.log(inkjet);
+
+            // hideUnlimited.style.display = 'none';
+
+            printerType.onclick = function() {
+                console.log(printerType.value);
+                showUnlimitedOnly();
+            }
+
+            function showUnlimitedOnly() {
+                // var x = document.getElementById("hideUnlimited");
+                if (printerType.value == inkjet) {
+                    monthlyConsumption.style.display = "none";
+                } else {
+                    monthlyConsumption.style.display = "block";
+                }
+            }
+            
+    </script>
+</body>
+</html>

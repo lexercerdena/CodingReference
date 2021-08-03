@@ -1,0 +1,3 @@
+UPDATED FEATURES:
+- You can now 'EDIT' and 'DELETE' Inventory Item
+- Inventory quantity will also be deducted based on the orders. If you order all items, Inventory quantity will be updated to out of stock. 'Add order' button will also be disabled since the item is 'OUT OF STOCK' already.

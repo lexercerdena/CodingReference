@@ -1,0 +1,50 @@
+* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+.bg-teal {
+    background-color: teal !important;
+}
+
+.my-4 {
+    color: white !important;
+}
+
+.wordpress {
+    background-color: lightblue;
+}
+
+.css {
+    background-color: blue;
+}
+
+.html {
+    background-color: orange;
+}
+
+.javascript {
+    background-color: yellow;
+}
+
+.title {
+    text-align: center;
+}
+
+.skill-image {
+    /* border: 1px solid red; */
+    width: 50px;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.skill-content {
+    padding: 15px;
+}
+
+.skill-content > div {
+    border-radius: 8px;
+    padding: 10px 18px;
+    text-align: center;
+}

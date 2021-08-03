@@ -1,0 +1,44 @@
+* {
+    padding: 0%;
+    margin: 0%;
+}
+
+header {
+    border: 1px solid red;
+}
+
+.navbar-nav {
+    margin: 0% auto;
+}
+
+.luckyseven {
+    border: 1px solid red;
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.todays-jackpot {
+    text-align: left;
+}
+
+.luckyseven h1 {
+    font-size: 15em;
+}
+
+.luckyseven-content {
+    text-align: center;
+}
+
+.three-cards {
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-md-4 {
+    border: 1px solid orange;
+    height: 300px;
+}

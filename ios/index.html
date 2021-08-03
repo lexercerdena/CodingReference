@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Inventory and Ordering System</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="js/login.js"></script>
+	<script src="js/inventory.service.js"></script>
+	<script src="js/order.service.js"></script>
+
+</head>
+<body>
+	<header>
+		<div class="container">
+			<img class="ihub-logo" src="images/IOS.png">
+		</div>
+	</header>
+
+	<div class="container">
+		<nav>
+		  <div class="nav nav-tabs justify-content-end" id="nav-tab" role="tablist">
+		  	<a class="nav-item nav-link" id="nav-inventory-tab" data-toggle="tab" href="#nav-inventory" role="tab" aria-controls="nav-Inventory" aria-selected="false" disabled>Inventory</a>
+
+		  	<a class="nav-item nav-link" id="nav-add-order-tab" data-toggle="tab" href="#nav-add-order" role="tab" aria-controls="nav-add-order" aria-selected="false">Add Order</a>
+		    
+		    <a class="nav-item nav-link" id="nav-order-list-tab" data-toggle="tab" href="#nav-orders-list" role="tab" aria-controls="nav-orders" aria-selected="false">Orders List</a>
+		    
+		    <a class="nav-item nav-link active" id="nav-login-logout-tab" data-toggle="tab" href="#nav-login-logout" role="tab" aria-controls="nav-login-logout" aria-selected="true">Login</a>
+		  </div>
+		</nav>
+
+		<div class="tab-content" id="nav-tabContent">
+		  <!-- Inventory Tab -->
+		  <div class="tab-pane fade" id="nav-inventory" role="tabpanel" aria-labelledby="nav-inventory-tab">
+		  	<div>
+
+		  		<!-- Modal Button -->
+				<!-- <button type="button" class="btn btn-primary inventory-btn" data-toggle="modal" data-target="#inventoryModal"> -->
+				<button type="button" class="btn btn-primary inventory-btn" id="addInventoryButton">
+				  Add Inventory Item
+				</button>
+				<!-- <button type="button" class="btn btn-success inventory-btn" id="deleteInvButton">Delete Items</button> -->
+
+				<!-- Modal -->
+				<div class="modal fade" id="inventoryModal" tabindex="-1" role="dialog" aria-labelledby="inventoryLabel" aria-hidden="true">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="inventoryLabel">Add Inventory Item</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+
+				      <div class="modal-body">
+				        <form>
+						  <div class="form-group">
+						    <label for="inventoryItemCode">Enter Item Code</label>
+						    <input type="text" class="form-control" id="inventoryItemCode" placeholder="Enter Item Code" required>
+						  </div>
+						  <div class="form-group">
+						    <label for="inventoryItemDesc">Enter Description</label>
+						    <input type="text" class="form-control" id="inventoryItemDesc"  placeholder="Enter Description" required>
+						  </div>
+						  <div class="form-group">
+						    <label for="inventoryItemQuantity">Quantity</label>
+						    <input type="number" min="1" value="1" class="form-control" id="inventoryItemQuantity" required>
+						  </div>
+						</form>
+				      </div>
+
+				      <p class="invalidMessage"></p>
+
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				        <button type="button" class="btn btn-primary" id="addItemButton">Add Item</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+		  		<!-- End of Modal -->
+		  		<table class="table table-striped">
+				  <thead>
+				    <tr>
+				      <th scope="col">Client Code</th>
+				      <th scope="col">Item Code</th>
+				      <th scope="col">Item Description</th>
+				      <th scope="col">Date Created</th>
+				      <th scope="col">Quantity</th>
+				      <th scope="col">Action</th>
+				    </tr>
+				  </thead>
+				  <tbody id="inventoryBody">
+					  
+				  </tbody>
+				</table>
+				<h4 id="inventoryMessage"></h4>
+		  	</div>
+		  </div>
+		  <!-- End of Inventory Tab -->
+
+		  <!-- Add Orders Tab -->
+		  <div class="tab-pane fade" id="nav-add-order" role="tabpanel" aria-labelledby="nav-add-order-tab">
+		  	<div>
+		  		<table class="table table-striped">
+				  <thead>
+				    <tr>
+						<th scope="col">Client Code</th>
+						<th scope="col">Item Code</th>
+						<th scope="col">Item Description</th>
+						<th scope="col">Action</th>
+				    </tr>
+				  </thead>
+				  <tbody id="orderAddBody">
+
+				  </tbody>
+				</table>
+				<h4 id="orderAddMessage"></h4>
+		  	</div>
+		  </div>
+
+			<!-- Modal -->
+			<div class="modal fade" id="add-order-modal" tabindex="-1" role="dialog" aria-labelledby="addOrderModalLabel" aria-hidden="true">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="addOrderModalLabel">Add Order Form</h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
+			        <form>
+					  <div class="form-group">
+					  	<p>Item Code</p>
+					  	<h5 id="addOrderItemCode"></h5>
+					  </div>
+					  <div class="form-group">
+					    <p>Item Description</p>
+					  	<h5 id="addOrderItemDesc"></h5>
+					  </div>
+					  <!-- <div class="form-group">
+					    <label for="deliveryDate">Delivery Date</label>
+					  	<input type="date" class="form-control" id="deliveryDate" placeholder="Delivery Date" required>
+					  </div>
+					  <div class="form-group">
+					  	<label for="deliveryAddress">Delivery Address</label>
+					  	<input type="text" class="form-control" id="deliveryAddress" placeholder="Delivery Date" required>
+					  </div> -->
+					  <div class="form-group">
+					    <label for="addOrderItemQuantity">Quantity</label>
+					    <input type="number" min="1" value="1" class="form-control" id="addOrderItemQuantity">
+					  </div>
+					</form>
+			      </div>
+
+			      <p class="invalidMessage"></p>
+
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			        <button type="button" class="btn btn-primary" id="addOrderButton">Save Orders</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- End of Modal -->
+		  <!-- End of Add Orders Tab -->
+
+		  <!-- Orders List Tab -->
+		  <div class="tab-pane fade" id="nav-orders-list" role="tabpanel" aria-labelledby="nav-order-list-tab">
+		  	<div>
+		  		<!-- Modal -->
+				<div class="modal fade" id="orderListModal" tabindex="-1" role="dialog" aria-labelledby="orderListLabel" aria-hidden="true">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="orderListLabel">Order List Form</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+
+				      <div class="modal-body">
+				        <form>
+						  <div class="form-group">
+						    <label for="orderNumberItem">Order Number</label>
+						    <input type="text" class="form-control" id="orderNumberItem" placeholder="Enter Order Number" required>
+						  </div>
+						  <div class="form-group">
+						    <label for="deliveryDate">Delivery Date</label>
+						    <input type="date" class="form-control" id="deliveryDate"  placeholder="Delivery Date" required>
+						  </div>
+						   <div class="form-group">
+						    <label for="deliveryAddress">Delivery Address</label>
+						    <input type="address" class="form-control" id="deliveryAddress"  placeholder="Delivery Address" required>
+						  </div>
+						  <div class="form-group">
+						    <label for="totalItems">Total Items</label>
+						    <input type="number" min="1" value="1" class="form-control" id="totalItems" required>
+						  </div>
+						</form>
+				      </div>
+
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				        <button type="button" class="btn btn-primary" id="editOrderListLabel">Save Changes</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+		  		<!-- End of Modal -->
+
+		  		<table class="table table-striped">
+				  <thead>
+				    <tr>
+						<th scope="col">Order Number</th>
+						<th scope="col">Client Code</th>
+						<th scope="col">Delivery Date</th>
+						<th scope="col">Delivery Address</th>
+						<th scope="col">Total Items</th>
+						<th scope="col">Action</th>
+				    </tr>
+				  </thead>
+				  <tbody id="orderListBody">
+
+				  </tbody>
+				</table>
+				<h4 id="orderListMessage"></h4>
+		  	</div>
+		  </div>
+		  <!-- End of Orders List Tab -->
+
+
+		  <!-- Login & Logout Tab -->
+		  <div class="tab-pane fade active show" id="nav-login-logout" role="tabpanel" aria-labelledby="nav-login-logout-tab">
+		  	<div id="login-form">
+				<form>
+				  <div class="form-group">
+				    <label for="userName">User Name</label>
+				    <input type="text" class="form-control" id="userName" placeholder="Enter User Name" required>
+				    <small id="userName" class="form-text text-muted">We'll never share your username and password with anyone else.</small>
+				  </div>
+				  <div class="form-group">
+				    <label for="password">Password</label>
+				    <input type="password" class="form-control" id="password" placeholder="Enter Password" required>
+				  </div>
+				  <button type="submit" class="btn btn-primary" id="submitButton">Submit</button>
+				</form>
+			</div>
+		  </div>
+		  <!-- End of Login & Logout Tab -->
+		</div>
+	</div>
+
+	<!-- Delete Modal -->
+	<div class="modal" id="deleteModal" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Delete Item</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					  <span aria-hidden="true">&times;</span>
+					</button>
+					</div>
+					<div class="modal-body">
+						Are you sure you want to delete this item?
+					</div>
+					<div class="modal-footer">
+					<button type="button" class="btn btn-primary" id="deleteModalButton">Yes</button>
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+				</div>
+			</div>
+		</div>
+	</div>									
+
+	<!-- End of Delete Modal -->
+	
+
+<div class="lds-facebook"><div></div><div></div><div></div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

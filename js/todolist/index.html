@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #9e9797;
+        }
+
+        .btn {
+            border: none;
+            background-color: inherit;
+            padding: 14px 28px;
+            font-size: 16px;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: #eee;
+        }
+
+        /* .danger {color: red;} */
+    </style>
+</head>
+<body>
+    <h3>Todo List Page</h3>
+    <input type="text" id="nameField">
+    <input type="text" id="ageField">
+    <input type="text" id="genderField">
+    <button type="button" id="addListButton">Add List</button>
+    <br><br>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+
+        </tbody>
+    </table>
+
+    <script>
+        const nameField = document.getElementById('nameField');
+        const ageField = document.getElementById('ageField');
+        const genderField = document.getElementById('genderField');
+
+        const addListButton = document.getElementById('addListButton');
+        var tableBody = document.getElementById('tableBody');
+        // console.log(tableBody);
+        
+        function createEl() {
+            var tableRowName = document.createElement('td');
+            var tableRowAge = document.createElement('td');
+            var tableRowGender = document.createElement('td');
+            var actionRow = document.createElement('td');
+            var tableRow = document.createElement('tr');
+            var deleteButton = document.createElement('button');
+            deleteButton.innerHTML = 'Delete';
+            deleteButton.style.color = 'red';
+            deleteButton.setAttribute('class', 'btn');
+            deleteButton.setAttribute('type', 'button');
+
+            deleteButton.onclick = function() {
+                console.log('clicked');
+                tableRow.remove();
+            }
+
+            actionRow.appendChild(deleteButton);
+            tableRow.append(tableRowName, tableRowAge, tableRowGender, actionRow);
+            tableBody.appendChild(tableRow);
+            // console.log(inputField.value);
+
+            tableRowName.innerHTML = nameField.value;
+            tableRowAge.innerHTML = ageField.value;
+            tableRowGender.innerHTML = genderField.value;
+        }
+
+        addListButton.onclick = function() {
+            createEl();
+        }
+
+    </script>
+</body>
+</html>

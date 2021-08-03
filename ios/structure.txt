@@ -1,0 +1,32 @@
+1. Inventory Item Object
+	dateCreated: dateCreated,
+	dateUpdated: dateCreated,
+	clientCode: '001',
+	itemCode: inventoryItemCode,
+	itemDescription: inventoryItemDesc,
+	quantity: inventoryItemQuantity,
+	orderNumber: orderNumber,
+	totalItem: totalItem
+
+2. Order Object
+	dateCreated: dateCreated,
+	dateUpdated: dateCreated,
+	clientCode: '001',
+	itemCode: inventoryItemCode,
+	itemDescription: inventoryItemDesc,
+	quantity: inventoryItemQuantity,
+	orderNumber: orderNumber,
+	deliverDate: addOrderDeliverDate,
+	deliveryAddress: addOrderDeliveryAddress,
+	totalItem: totalItem
+
+	clientCode: "001"
+	dateCreated: "9/6/2020"
+	dateUpdated: "9/6/2020"
+	deliveryAddress: "re"
+	deliveryDate: "2020/09/11"
+	id: "-MGUJoNaGsgr-UhGnyNZ"
+	itemCode: "001"
+	itemDescription: "First Item"
+	orderNumber: "8225113"
+	quantity: "1"
